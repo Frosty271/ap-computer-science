@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController {
-	IBOutlet UITextField* input;
-	
-}
+@interface ViewController : UIViewController
 
+@property IBOutlet UITextField* inputField;
+
+@property IBOutlet UIActivityIndicatorView* spinner;
+-(IBAction)valueChanged:(UITextField*)inputField;
 @end

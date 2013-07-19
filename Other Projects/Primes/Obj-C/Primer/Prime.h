@@ -11,5 +11,5 @@
 @interface Prime : NSObject{
 }
 -(NSMutableArray*)listPrimes: (double)cap;
--(bool)testPrimeness: (int)candidate;
+-(bool)testPrimeness: (long long)candidate;
 @end

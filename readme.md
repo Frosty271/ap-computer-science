@@ -1,5 +1,8 @@
-Computer Science AP - WH Taft High School 13-14
+Computer Science AP
 ==
+
+WH Taft High School 13-14
+
 Assignments and explorations from the year. Some may be replicated in Objective-C for kicks.
 
 ## Other Projects
