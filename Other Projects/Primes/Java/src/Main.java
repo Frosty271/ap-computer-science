@@ -11,7 +11,7 @@ public class Main {
 	}
 	public static boolean isPrime(Integer input)	{
 		double cap = Math.sqrt( (double)input );
-		if( cap%1 == 0 ) return false;
+		if( cap % 1 == 0 ) return false;
 		List<Integer> list = listPrimes( cap );
 		//System.out.print( list);
 		for(int i = 0; i < list.size(); i++){
