@@ -6,6 +6,7 @@ out
 project.xcworkspace
 *.xccheckout
 gridworld
+test
 
 #########################
 # .gitignore file for Xcode4 / OS X Source projects
