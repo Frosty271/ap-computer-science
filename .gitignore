@@ -1,12 +1,11 @@
-#.idea/*
-#.idea
-#.metadata
 out
-#*.iml
 project.xcworkspace
 *.xccheckout
 gridworld
-#test
+
+tasks.xml
+workspace.xml
+vcs.xml
 
 #########################
 # .gitignore file for Xcode4 / OS X Source projects
