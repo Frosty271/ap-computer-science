@@ -1,4 +1,4 @@
-public class Main {
+public class controlStructures {
 
     public static void main(String[] args) {
 		//Code is normally executed from top to bottom. Here are some ways we can skip, loop, and otherwise modify the flow of the program.
