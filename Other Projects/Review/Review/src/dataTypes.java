@@ -118,5 +118,17 @@ public class dataTypes {
 		String j = " What up?";
 		System.out.println(i + j); //We can add strings? Well, no. When the compiler sees that we're using the plus operator on the strings, it knows that we actually want to put the strings together. This is called operator overloading.
 
+		//THE WEIRD TYPE
+		//More often than you might imagine, it's useful to just store a value that is either on or off. True or false. There's a type for that. It's called a boolean (after the logician that came up with this kind of 'on or off' thinking).
+		boolean k = false; //Here, false IS NOT A STRING. There are no quotes around it. It's a special reserved keyword.
+		System.out.println(k); //...yet this will print false into the console. I just said it wasn't a string, so how does that work? It's compiler magic.
+		//Moral of the story is, don't try to use a boolean like you would a String or you'll run into problems.
+
+		//You might recognize 'true or false' from control structures...
+		boolean l = true;
+		if(l) System.out.println("Boolean l was true, so the if statement ran!");
+		//If statements run on boolean logic
+
+
     }
 }
