@@ -1,7 +1,3 @@
-import java.util.Arrays;
-import java.util.List;
-
-//Nick Walker
 public class dataTypes {
 
     public static void main(String[] args) {
@@ -65,7 +61,6 @@ public class dataTypes {
 		System.out.println(d); //This will actually read 3!
 
 		//Interestingly, if you place the incrementation AFTER the varible, it flips the first and second step!
-
 		int e = 0;
 		System.out.println(++e); //This will read 1.
 		System.out.println(e++); //This will read 1 too! The print statement gets the value of 1 BEFORE it's incremented. The value is still incremented though...
@@ -129,6 +124,18 @@ public class dataTypes {
 		if(l) System.out.println("Boolean l was true, so the if statement ran!");
 		//If statements run on boolean logic
 
+		//SWITCHING BETWEEN TYPES
+		//Placing a type name in parentheses before a variable name will translate it to the enclosed type. This is called 'typecasting'. Different translations work in different ways, so always be sure to test how it works before you start relying on it.
+		double m = 10.2349508;
+		int n = (int)m;
+		System.out.println(n);
 
+		//CONSTANTS
+		//Sometimes you want variables to be less... variable. You can lock them with the final keyword.
+		final int o = 10;
+		//o = 20; COMPILE ERROR
+		final int p;
+		p =10;  //Accepts the first assignment...
+		//p = 11;  COMPILE ERROR: Locks out further assignment.
     }
 }
