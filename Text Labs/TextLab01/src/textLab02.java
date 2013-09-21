@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Main {
+public class textLab02 {
 
 	public static void main(String[] args) {
 		System.out.println("Please enter a number of milliseconds.");
