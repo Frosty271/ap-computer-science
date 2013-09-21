@@ -7,13 +7,29 @@ Assignments and explorations from the year. Includes [IntelliJ IDEA](http://www.
 
 ## Labs
 
-### Text Lab 1
+### Text Labs
+
+Console based labs.
+
+#### Text Lab 1
 
 Prints simple ASCII art from passed in arrays of "pixels." In Java.
 
-### Text Lab 2
+#### Text Lab 2
 
 Takes an input number of milliseconds and splits it into component time units. Good practice with modulo math. In Java.
+
+#### Text Lab 3
+
+Calculates cost of mortgage loans. In Java.
+
+### Graphics Labs
+
+Graphics applets.
+
+#### Graphics Lab 1
+
+Displays various shapes using built in drawing methods.
 
 ## Other Projects
 
@@ -29,6 +45,9 @@ Data types in the AP Computer Science Java Subset.
 
 Control structures in the AP Computer Science Java Subset.
 
+### Input Helper
+
+Simple wrapper for Scanner input methods. 
 
 ### Primes
 
