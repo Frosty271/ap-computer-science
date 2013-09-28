@@ -47,7 +47,11 @@ Control structures in the AP Computer Science Java Subset.
 
 ### Input Helper
 
-Simple wrapper for Scanner input methods. 
+Simple wrapper for Scanner input methods.
+
+### Fitter
+
+Takes a given quantity of two specific integers and determines whether it is possible to reach a certain number exactly by using only the allotted possible integer
 
 ### Primes
 
