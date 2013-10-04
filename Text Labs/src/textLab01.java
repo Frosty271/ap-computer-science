@@ -2,7 +2,7 @@ import java.util.Arrays;
 import java.util.List;
 
 //Nick Walker
-public class textLab01 {
+public class TextLab01 {
 
     public static void main(String[] args) {
         System.out.println("Text Lab 01, 100 Point Version\n\n");

@@ -1,6 +1,6 @@
 import java.awt.*;
 import java.applet.*;
-public class graphicsLab01 extends Applet {
+public class GraphicsLab01 extends Applet {
     public void paint(Graphics g)
     {
         // DRAW CUBE

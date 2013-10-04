@@ -1,4 +1,4 @@
-public class textLab03 {
+public class TextLab03 {
 	public static void main(String args[]){
 		System.out.println("TextLab03, Student Version\n");
 

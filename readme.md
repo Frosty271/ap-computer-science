@@ -31,6 +31,10 @@ Graphics applets.
 
 Displays various shapes using built in drawing methods.
 
+#### Graphics Lab 2
+
+Displays parabolas using straight lines.
+
 ## Other Projects
 
 ### Review
@@ -51,7 +55,7 @@ Simple wrapper for Scanner input methods.
 
 ### Fitter
 
-Takes a given quantity of two specific integers and determines whether it is possible to reach a certain number exactly by using only the allotted possible integer
+Takes a given quantity of two specific integers and determines whether it is possible to reach a certain number exactly by using only the allotted possible integer addends.
 
 ### Primes
 
