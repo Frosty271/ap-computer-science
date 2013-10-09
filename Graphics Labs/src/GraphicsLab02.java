@@ -5,50 +5,57 @@ import java.util.ArrayList;
 public class GraphicsLab02 extends Applet {
     public void paint(Graphics g)
     {
-        // DRAW Parabola
-     /*   ParabolaRectangle big = new ParabolaRectangle(0,0,800,600,20);
-        big.draw(g);
+        //It can be quite interesting to study the effects of changing the aspect ratio
+		//Change these to prime numbers and watch the beauty fall apart ;)
+        int baseWidth = 800,  baseHeight = 600;
+        int numberRectangles = 4;
 
-        ParabolaRectangle medium = new ParabolaRectangle(200,150,400,300,20);
-        medium.draw(g);
+        //Draw rectangles
+        int tempWidth, tempHeight,tempXOrigin,tempYOrigin;
+        ParabolaRectangle tempRectangle;
 
-        ParabolaRectangle small = new ParabolaRectangle(300,225,200,150,20);
-        small.draw(g);*/
+        for (int i = 0; i<=numberRectangles; i++){
+            tempHeight = (int)(baseHeight* Math.pow(.5,i));//Divide height in half i times
+            tempWidth = (int)(baseWidth* Math.pow(.5,i));//Divide width in half by i times
+            tempXOrigin = ( (baseWidth-tempWidth)/2); //Find the difference in size, and distribute the difference between the two sides of the rectangle
+            tempYOrigin = ( (baseHeight-tempHeight)/2);//ditto
 
-		int baseWidth = 800,  baseHeight = 600,  baseIterations = 20;
-		int rectangleIterations = 5;
-
-		//Meta for-looping
-		int tempWidth, tempHeight,tempXOrigin,tempYOrigin, tempIterations;
-		ParabolaRectangle tempRectangle;
-		//ArrayList rectangleList = new ArrayList<ParabolaRectangle>();
-		for (int i = 0; i<=4; i++){
-			tempHeight = (int)(baseHeight* Math.pow(.5,i));
-			tempWidth = (int)(baseWidth* Math.pow(.5,i));
-			tempXOrigin = ( (baseWidth-tempWidth)/2);
-			tempYOrigin = ( (baseHeight-tempHeight)/2);
-			//tempIterations =  (int) (baseIterations* Math.pow(.5,i) );
-			tempIterations = baseIterations;
-			tempRectangle = new ParabolaRectangle(tempXOrigin,tempYOrigin, tempWidth, tempHeight, tempIterations);
-			tempRectangle.draw(g);
-		}
+            tempRectangle = new ParabolaRectangle(tempXOrigin,tempYOrigin, tempWidth, tempHeight);
+            tempRectangle.draw(g);
+        }
     }
 }
-    class ParabolaRectangle{
-        int xOrigin,yOrigin;
-        int width, height;
-        int iterations;
+class ParabolaRectangle{
+    int xOrigin,yOrigin;
+    int width, height;
+    int iterations;
 
-    public ParabolaRectangle(int xOrigin,int yOrigin,int width,int height, int iterations){
-      this.xOrigin= xOrigin;
-      this.yOrigin = yOrigin;
-      this.width= width;
-      this.height= height;
-      this.iterations = iterations;
+    public ParabolaRectangle(int xOrigin,int yOrigin,int width,int height){
+        this.xOrigin= xOrigin;
+        this.yOrigin = yOrigin;
+        this.width= width;
+        this.height= height;
+        this.iterations = ( gcf(width,height) < 100) ? gcf(width,height): 100;
+        //You'll get some unexpected results if you don't make your sizes evenly divisible by the iteration number. So we take the greatest number that works, unless it's bigger than 100 (which would be a lot of lines).
+        //This merits more explanation. In order for our effect to work, the change in the x and y aspects of our line MUST be equal. Therefore, our if our number of iterations does not divide evenly into both sides...
+        //W=5
+        //H=6
+        //i = 3
+        //H portion movement per iteration 2;
+        //W portion for iteration is 5/3 = 1.66 -> 1
+        //After i+1 iterations (0 indexed) W has been 0 2 3 4 6
+        //But H will be only 0 1 2 3 4 ! It'll be a pixel short
+        //We can circumvent this by storing the dimensional deltas in decimal form, but really, we'll just see the effect appear in strange jumps that occur when the decimals breach the next integer. I would rather keep both feet in the whole-pixel philosophy and just pick numbers that will work.
+    }
+    public int gcf(int a, int b){
+        if (b==0) return a;
+        return gcf(b,a%b);
+	//Euclid's GCD algorithm.
+        //This is kind of magical. I don't know exactly why this works.
     }
 
     public void draw(Graphics g){
-		//You'll get some unexpected results if you don't make your sizes evenly divisible by the iteration number.
+
         int heightPortion = height/iterations;
         int widthPortion = width/iterations;
 
@@ -94,4 +101,3 @@ public class GraphicsLab02 extends Applet {
 
     }
 }
-
