@@ -1,4 +1,4 @@
-public class fitter {
+public class Fitter {
 	public static void main (String[] args){
 		runTests();
 
