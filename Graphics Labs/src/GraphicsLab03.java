@@ -61,7 +61,7 @@ public class GraphicsLab03 extends Applet {
             g.drawOval(startX, startY, tempCircleSize, tempCircleSize);
         }
         g.setColor(Color.yellow);
-        int cubeXOrigin = 550;
+        int cubeXOrigin = 500;
         int cubeYOrigin= 350;
         int cubeSize = 100;
         int cubeOffset = 50;
