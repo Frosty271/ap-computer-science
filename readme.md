@@ -13,15 +13,31 @@ Console based labs.
 
 #### Text Lab 1
 
-Prints simple ASCII art from passed in arrays of "pixels." In Java.
+Prints simple ASCII art from passed in arrays of "pixels."
 
 #### Text Lab 2
 
-Takes an input number of milliseconds and splits it into component time units. Good practice with modulo math. In Java.
+Takes an input number of milliseconds and splits it into component time units. Good practice with modulo math.
 
 #### Text Lab 3
 
-Calculates cost of mortgage loans. In Java.
+Calculates cost of mortgage loans.
+
+#### Text Lab 4
+
+Implements a class for storing rational numbers and a helper class for simplification.
+
+#### Text Lab 5
+
+Extends Text Lab 4 with arithmetic ability.
+
+#### Text Lab 6
+
+Calculates cost of mortgage loans.
+
+#### Text Lab 7
+
+Generates Magic Squares using two different methods. Includes built in checking mechanisms and string output.
 
 ### Graphics Labs
 
@@ -59,6 +75,6 @@ Takes a given quantity of two specific integers and determines whether it is pos
 
 ### Primes
 
-Takes an input number and determines whether it is prime or not using simple trial algorithm. In Java and Obj-C (iOS interface).
+Takes an input number and determines whether it is prime or not using simple trial algorithm.and Obj-C (iOS interface).
 
  
