@@ -5,26 +5,26 @@ public class TextLab07 {
 
 	public static void main(String args[]){
 
-       MagicSquare ourSquare = new MagicSquare(3);
+       System.out.println("Enter an odd number:");
+
+       MagicSquare ourSquare = new MagicSquare(readInt());
          System.out.println(ourSquare);
          System.out.println(ourSquare.check());
 
     }
+    public static int readInt() {
+        Scanner in = new Scanner(System.in);
+        return in.nextInt();
+
+    }
 }
 
-//   0 1 2 3 4 5
-// 0
-// 1
-// 2
-// 3
-// 4
-// 5
-//
 class MagicSquare {
     private final int size;
     private int[][] values;
     MagicSquare(){
-        //I've never seen syntax like this, but whatever
+
+        //Calls the constructor the other constructor. I've never seen syntax like this, but whatever
         this(7);
     }
     MagicSquare(int size){
@@ -35,6 +35,7 @@ class MagicSquare {
         //this.fancyFillSquare();
         this.fillSquare();
     }
+    //The brute force method
     private void fillSquare(){
         //First row is at the top, first column at left
         //put a one in the top mid position
@@ -79,8 +80,9 @@ class MagicSquare {
         }
 
     }
+    //uses some fancyMath
     private void fancyFillSquare(){
-        //implementation of the standard mathematical algorithm
+
         int currentColumn = 0, currentRow = 0;
         for (int[] column : this.values) {
 
@@ -96,6 +98,8 @@ class MagicSquare {
         }
 
     }
+    //Implementation of the mathematical algorithm
+    //I bet this is faster too.
     private int fancyMath(int i, int j){
         //No, I don't know how this works. Google.
         final int n = this.size;
@@ -104,58 +108,87 @@ class MagicSquare {
         return left + right + 1;
     }
     public String toString(){
-        DecimalFormat formatter = new DecimalFormat("0000");
-        String returnString = "";
+        String returnString = this.size + " x " + this.size + " Magic Square \n=====\n";
 
-        for (int[] column : this.values) {
+        for (int[] row : this.values) returnString+= arrayToString(row, false) + "\n";
 
-            for (int row: column) returnString += " "+formatter.format(row);
-            returnString+= "\n";
-        }
-         return returnString;
+        return returnString;
     }
     //Check rows and columns
     public String check(){
-        //This is ridiculous, need a better way to do this.
-        //Maybe loops that put the values in a temp array, then a sperate method sums the array?
-        DecimalFormat formatter = new DecimalFormat("0000");
         String returnString = "";
-        int tempSum = 0;
-        int currentColumn = 0;
-        //Sum of rows
-        for (int[] column : this.values) {
 
-            for (int row: column){
-                returnString += formatter.format(row);
-                currentColumn++;
-                if(currentColumn != this.size) returnString+= "+";
-                tempSum += row;
-            }
-            currentColumn = 0;
-            returnString += " = " + tempSum + "\n";
-            tempSum = 0;
-        }
+        returnString += "Checking Rows\n=====\n";
+        for (int[] column : this.values) returnString += arrayToString(column, true);
 
-        int tempValue;
-        for(int i = 0; i < this.size; i++ ){
-            tempValue = this.values[(this.size-1)-i][i];
-            tempSum+= tempValue;
-            returnString += formatter.format(tempValue);
-            if(i != this.size-1) returnString+= "+";
-        }
-        returnString += " = " + tempSum + "\n";
-        tempSum = 0;
+        returnString += "\nChecking Columns\n=====\n";
+        for(int i = 0; i < this.size; i++)  returnString += arrayToString(getColumnFrom2DArray(this.values, i), true);
 
-        for(int i = 0; i < this.size; i++ ){
-            tempValue = this.values[i][i];
-            tempSum+= tempValue;
-            returnString += formatter.format(tempValue);
-            if(i != this.size-1) returnString+= "+";
-        }
-
-        returnString += " = " + tempSum + "\n";
-        tempSum = 0;
+        returnString += "\nChecking Diagonals\n=====\n";
+        returnString += arrayToString(getBottomLeftDiagonal(this.values), true);
+        returnString += arrayToString(getTopLeftDiagonal(this.values), true);
 
         return returnString;
+    }
+    //Because the builtin toString puts out junk we don't need. Has a check mode bit as well as well built in pretty formatting
+    private String arrayToString(int[] array, boolean checkMode){
+        String returnString = "";
+        int currentColumn = 0;
+        DecimalFormat formatter = new DecimalFormat("0000");
+        for (int value: array){
+            returnString += formatter.format(value);
+            currentColumn++;
+            if(checkMode && currentColumn != array.length) returnString+= "+";
+            else returnString += " ";
+        }
+
+        if (checkMode) returnString += " = " + sumArray(array) + "\n";
+        return returnString;
+    }
+    //These are methods that help pull things out arrays
+    private int sumArray(int[] array){
+        int tempSum = 0;
+        for (int value: array) tempSum += value;
+        return tempSum;
+    }
+    private int[] getColumnFrom2DArray(int[][] array, int desiredColumn){
+        int[] returnColumn = new int[array.length];
+        int index = 0;
+        for(int[] row: array){
+           returnColumn[index] = row[desiredColumn];
+           index++;
+        }
+        return returnColumn;
+    }
+    private int[] getBottomLeftDiagonal(int[][] array) {
+        //Fill coordinates 0,0 1,1 2,2 etc into a new array, where the origin is in the top left corner
+        //I've included multiple redundant indices so that it's easier to see what exactly we're using it for at different places
+        int[] returnArray = new int[array.length];
+        int indexOfInsertion = 0;
+        int indexOfRow = 0;
+        int indexOfDesiredColumnValue = 0;
+        for(int[] row: array){
+            returnArray[indexOfInsertion] = row[indexOfDesiredColumnValue];
+            indexOfRow++;
+            indexOfInsertion++;
+            indexOfDesiredColumnValue++;
+        }
+        return returnArray;
+    }
+    private int[] getTopLeftDiagonal(int[][] array) {
+        //This gets 3, 3
+        int[] returnArray = new int[array.length];
+
+        int indexOfInsertion = array.length - 1;
+        int indexOfRow = 0;
+        int indexOfDesiredColumnValue = 0;
+        for(int[] row: array){
+            returnArray[indexOfInsertion] = row[indexOfDesiredColumnValue];
+            indexOfRow++;
+            indexOfInsertion--;
+            indexOfDesiredColumnValue++;
+
+        }
+        return returnArray;
     }
 }

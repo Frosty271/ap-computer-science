@@ -1,4 +1,4 @@
-import java.util.Scanner;
+/*import java.util.Scanner;
 
 public class TextLab05 {
 	static int num1, den1, num2, den2;
@@ -55,29 +55,32 @@ public class TextLab05 {
 //Immutable, provides multiple representations publicly
 class Rational
 {
-	private final int num, den;
+	private final int num, den, reducedDen, reducedNum;
 	Rational()
 	{
-		num = 1;
-		den = 1;
+		num = den = reducedDen = reducedNum = 1;
 	}
 	Rational(int num, int den){
 		this.num = num;
 		this.den = den;
+        int gcf = getGCF(num, den);
+        this.reducedDen = this.den / gcf;
+        this.reducedNum = this.num / gcf;
 	}
 	public double getDecimal(){
 		return (double)num/den;
 	}
 
 	public String getOriginal(){
-		return num + "/" + den;
+		return reducedNum + "/" + reducedDen;
 	}
 
 	//returns a reduced representation
 	public String getRational(){
-		int gcf = getGCF(num, den);
-		return num/gcf + "/" + den/gcf;
+
+		return reducedNum + "/" + reducedDen;
 	}
+
 	public int getNum()
 	{
 		return num;
@@ -104,10 +107,11 @@ class Rational
 		//This is kind of magical. I don't know exactly why this works.
 	}
 
+
 }
 
 //Handles math with Rational objects
-class RationalHelper {
+class RationalHelperx {
 
 	//don't worry about reducing the fraction, that can be handled within the Rational object
 	public static Rational multiply(Rational r1, Rational r2)
@@ -150,4 +154,4 @@ class RationalHelper {
 		//return add(r1,multiply(-1,r2);
 	}
 
-}
+}            */
