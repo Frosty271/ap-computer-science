@@ -1,4 +1,4 @@
-/*import java.util.Scanner;
+import java.util.Scanner;
 
 public class TextLab05 {
 	static int num1, den1, num2, den2;
@@ -72,12 +72,11 @@ class Rational
 	}
 
 	public String getOriginal(){
-		return reducedNum + "/" + reducedDen;
+		return num + "/" + den;
 	}
 
 	//returns a reduced representation
 	public String getRational(){
-
 		return reducedNum + "/" + reducedDen;
 	}
 
@@ -111,7 +110,7 @@ class Rational
 }
 
 //Handles math with Rational objects
-class RationalHelperx {
+class RationalHelper {
 
 	//don't worry about reducing the fraction, that can be handled within the Rational object
 	public static Rational multiply(Rational r1, Rational r2)
@@ -154,4 +153,4 @@ class RationalHelperx {
 		//return add(r1,multiply(-1,r2);
 	}
 
-}            */
+}

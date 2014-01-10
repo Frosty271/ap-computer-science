@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/GridWorld Labs.iml" filepath="$PROJECT_DIR$/GridWorld Labs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GWLab03/GWLab03.iml" filepath="$PROJECT_DIR$/GWLab03/GWLab03.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GWLab04/GWLab04.iml" filepath="$PROJECT_DIR$/GWLab04/GWLab04.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GWLab05/GWLab06.iml" filepath="$PROJECT_DIR$/GWLab05/GWLab06.iml" />
     </modules>
   </component>
 </project>
