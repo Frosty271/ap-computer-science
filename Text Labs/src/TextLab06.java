@@ -12,7 +12,7 @@ public class TextLab06 {
 			  System.out.printf("%04d ",prime);
 		  }
 
-		  testPrimenessWithAllStrategies(input);
+		  //testPrimenessWithAllStrategies(input);
 
 	}
 	//This won't turn out like you expect, probably because Math.sqrt is slower than we'd expect and division is just so fast
