@@ -7,12 +7,11 @@ public class GraphicsLab06
 	{
 		Windows win = new Windows();
 		win.setSize(800,600);
-        win.addWindowListener(new WindowAdapter() {
-            public void windowClosing(WindowEvent e) {System.exit(0);
-            }
-        });
-
-        win.show();
+		win.addWindowListener(new WindowAdapter() {
+			public void windowClosing(WindowEvent e) {System.exit(0);
+			}
+		});
+		win.show();
 	}
 }
 class Windows extends Frame
@@ -20,15 +19,18 @@ class Windows extends Frame
 
 	public void paint(Graphics g)
 	{
-		ArrayList<Shape> shapes = new ArrayList<Shape>();
-		shapes.add(new Square());
-		shapes.add(new Triangle());
-		shapes.add(new Octagon());
-		shapes.add(new Circle());
+		ArrayList<AbstractShape> shapes = new ArrayList<AbstractShape>();
+		int padding = 60;
+		int windowHeight = 300;
+		int windowWidth = 400;
+		shapes.add(new Square(padding,padding,padding,windowHeight-padding));
+		shapes.add(new Triangle(windowWidth+padding,padding,windowWidth+padding,windowHeight-padding));
+		shapes.add(new Octagon(padding,padding+windowHeight,padding,windowHeight*2-padding));
+		shapes.add(new Circle(windowWidth+padding,windowHeight+padding,windowWidth+padding,windowHeight*2-padding));
 
 		drawGrid(g);
 
-		for(Shape shape: shapes)
+		for(AbstractShape shape: shapes)
 		{
 			shape.drawShape(g);
 			shape.displayName(g);
@@ -43,45 +45,66 @@ class Windows extends Frame
 	}
 }
 interface Drawable {
-    public void drawShape(Graphics g);
-    public void displayName(Graphics g);
-    public void displayNumSides(Graphics g);
+	public void drawShape(Graphics g);
+	public void displayName(Graphics g);
+	public void displayNumSides(Graphics g);
 }
-abstract class AbstractShape{
-    int numSides;
-    String shapeName = this.getClass().getName();
-    int titleX, titleY;
-    int messageX, messageY;
-    public AbstractShape(){
-        throw new InternalError("YO");
-    }
-    public AbstractShape(String titleX, String titleY, String messageX, String messageY){
-        this.titleX = titleX;
-        this.titleY = titleY;
-        this.messageX = messageX;
-        this.messageY = messageY;
-    }
-    public void displayName(Graphics g){
-        g.drawString();
-    }
-    public void displayNumSides(Graphics g){
-        g.drawString("A " + shapeName + " has " + numSides + " sides.", messageX, messageY);
-    }
+abstract class AbstractShape implements Drawable{
+	int numSides;
+	String shapeName = this.getClass().getName();
+	int titleX, titleY;
+	int messageX, messageY;
+
+	public AbstractShape(int titleX, int titleY, int messageX, int messageY){
+		this.titleX = titleX;
+		this.titleY = titleY;
+		this.messageX = messageX;
+		this.messageY = messageY;
+	}
+	public void displayName(Graphics g){
+		g.drawString(this.shapeName, titleX, titleY);
+	}
+	public void displayNumSides(Graphics g){
+		g.drawString("A " + shapeName + " has " + numSides + " sides.", messageX, messageY);
+	}
 }
-class Square extends AbstractShape implements Drawable {
+class Square extends AbstractShape {
 
-    public void drawShape(Graphics g){
+	public Square(int titleX, int titleY, int messageX, int messageY){
+		super(titleX, titleY, messageX, messageY);
+	}
+	public void drawShape(Graphics g){
+		g.drawRect(100,100,100,100);
+	}
 
-    }
-
-
-}
-class Triangle extends AbstractShape implements Drawable {
 
 }
-class Circle extends AbstractShape implements Drawable {
+class Triangle extends AbstractShape {
+	public Triangle(int titleX, int titleY, int messageX, int messageY){
+		super(titleX, titleY, messageX, messageY);
+	}
+	public void drawShape(Graphics g){
+		g.fillPolygon(new int[] {500,600,550},new int[] {200,200,120},3);
+	}
 
 }
-class Octagon extends AbstractShape implements Drawable {
+class Circle extends AbstractShape {
+	public Circle(int titleX, int titleY, int messageX, int messageY){
+		super(titleX, titleY, messageX, messageY);
+	}
+	public void drawShape(Graphics g){
+		g.fillOval(500, 400, 100,100);
+	}
+
+}
+class Octagon extends AbstractShape {
+	public Octagon(int titleX, int titleY, int messageX, int messageY){
+		super(titleX, titleY, messageX, messageY);
+	}
+	public void drawShape(Graphics g){
+
+
+	}
+
 
 }

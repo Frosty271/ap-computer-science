@@ -51,7 +51,36 @@ Displays various shapes using built in drawing methods.
 
 Displays parabolas using straight lines.
 
+#### Graphics Lab 2
+
+Displays an assortment of randomized geometric forms.
+
+#### Graphics Lab 4
+
+Simple rich graphics. Gradients, solid fills, strokes and quadrilaterals.
+
+### GridWorld Labs
+
+Exploration of the GridWorld case-study.
+
+#### GridWorld Lab 3
+
+Fills the grid with alternating colors of flower.
+
+#### GridWorld Lab 4
+
+Bug that turns randomly and changes color based on direction.
+
+#### GridWorld Lab 6
+
+Box motion bug and frog class that leaps two spaces at a time.
+
+#### GridWorld Lab 7
+
+Bug that jumps to random empty spaces on the grid leaving rocks until it can no longer move.
 ## Other Projects
+
+
 
 ### Review
 
