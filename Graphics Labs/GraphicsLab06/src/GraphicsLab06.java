@@ -72,9 +72,10 @@ class Square extends AbstractShape {
 
 	public Square(int titleX, int titleY, int messageX, int messageY){
 		super(titleX, titleY, messageX, messageY);
+		this.numSides = 4;
 	}
 	public void drawShape(Graphics g){
-		g.drawRect(100,100,100,100);
+		g.fillRect(100,100,100,100);
 	}
 
 
@@ -82,6 +83,7 @@ class Square extends AbstractShape {
 class Triangle extends AbstractShape {
 	public Triangle(int titleX, int titleY, int messageX, int messageY){
 		super(titleX, titleY, messageX, messageY);
+		this.numSides = 3;
 	}
 	public void drawShape(Graphics g){
 		g.fillPolygon(new int[] {500,600,550},new int[] {200,200,120},3);
@@ -91,18 +93,34 @@ class Triangle extends AbstractShape {
 class Circle extends AbstractShape {
 	public Circle(int titleX, int titleY, int messageX, int messageY){
 		super(titleX, titleY, messageX, messageY);
+		this.numSides = 0;
 	}
 	public void drawShape(Graphics g){
 		g.fillOval(500, 400, 100,100);
 	}
 
 }
-class Octagon extends AbstractShape {
+class Octagon extends Polygon {
 	public Octagon(int titleX, int titleY, int messageX, int messageY){
+		super(8, titleX, titleY, messageX, messageY);
+	}
+}
+class Polygon extends AbstractShape {
+	public Polygon(int sides, int titleX, int titleY, int messageX, int messageY){
 		super(titleX, titleY, messageX, messageY);
+		this.numSides = sides;
 	}
 	public void drawShape(Graphics g){
-
+		java.awt.Polygon tempPolygon = new java.awt.Polygon();
+		double theta =  2 * Math.PI / numSides;
+		double x,y;
+		double xOffset = 150, yOffset = 430;
+		for (int i = 0; i < numSides; ++i) {
+			x = Math.cos(theta * i + Math.toRadians(22.5));
+			y = Math.sin(theta * i + Math.toRadians(22.5));
+			tempPolygon.addPoint((int) (x*70 + xOffset), (int) (y*70 + yOffset));
+		}
+		g.fillPolygon(tempPolygon);
 
 	}
 

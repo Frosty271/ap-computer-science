@@ -1,6 +1,6 @@
 import info.gridworld.actor.ActorWorld;
 
-public class GLab07
+public class GWLab07
 {
     public static void main(String[] args)
     {
